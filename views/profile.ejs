@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contacto</title>
+    <%- include("partials/head") -%>
+
+    <style>
+
+            body{
+            background: url(https://p4.wallpaperbetter.com/wallpaper/733/1023/808/forest-mac-os-x-mist-mountains-wallpaper-preview.jpg);
+            background-size: cover;
+            }
+
+            
+            .navbar-center
+            {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 1;
+                text-align: center;
+                overflow: visible;
+                height: 0;
+            }
+        
+        </style>
+</head>
+
+<body>
+
+
+
+    <% if (!user) { %>
+        <section class="jumbotron container mt-5">
+            <img src='https://i.ya-webdesign.com/images/contacts-icon-png-7.png' height="120" width="120">
+            <h1>Bienvenido a la aplicación de Contactos</h1> 
+            <p class="mt-5"><a href="/login/google" class="loginBtn loginBtn--google ">Entrar con Google</a></p>
+        </section>
+
+    <% } else { %>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <h1>
+                <a class="navbar-brand" href="/">
+                    <img src="https://i.ya-webdesign.com/images/contacts-icon-png-7.png" style="height: 30px" class="d-inline-block align-top"> Contactos
+                </a>
+                </h1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                       <h5 class="navbar-text navbar-center">Hola, <%= user.displayName %></h5>
+
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+            
+                        <li class="nav-item">
+                            <a class="btn btn-primary3" href="/upload"><i class="fas fa-upload"></i> Registrar Contacto</a>
+                            <a  href="/logout" class="btn btn-primary2">Salir</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+
+                    <div class="card animated fadeInDown">
+                        <img src="<%= image.path %>" class="card-img-top" alt="<%= image.filename %>">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= image.nombre %>
+                            </h5>
+                            <h5 class="card-title">
+                                <%= image.apellido %>
+                            </h5>
+                            <p class="card-text">
+                                <%= image.correo %>
+                            </p>
+                            <p class="card-text">
+                                <%= image.fecha %>
+                            </p>
+                            <p>
+                                <%= format(image.created_at) %>
+                            </p>
+                            <a href="/image/<%= image._id%>/delete" class="btn btn-danger btn-block">
+                                Eliminar Contacto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <% } %>
+
+</body>
+
+</html>
