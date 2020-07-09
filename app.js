@@ -13,8 +13,8 @@ const { format } = require('timeago.js');
 const { Strategy } = require('passport-google-oauth20');
 const routes = require('./routes');
 passport.use(new Strategy({
-    clientID: '693670427570-9o4gve7d5gb4u0919sjr6r2i7kohvgiq.apps.googleusercontent.com',
-    clientSecret: 'm31_ppqLI7youiduSSu3VJqM',
+    clientID: ' ',
+    clientSecret: ' ',
     callbackURL: '/return'
   },
   (accessToken, refreshToken, profile, cb) => {
@@ -23,8 +23,8 @@ passport.use(new Strategy({
 
 
 passport.use(new FacebookStrategy({
-  clientID: '758841867988127',
-  clientSecret: '8b078633b67cff553456e0824fbc74be',
+  clientID: ' ',
+  clientSecret: ' ',
   callbackURL: '/auth/facebook/callback'
 },
 (accessToken, refreshToken, profile, cb) => {
